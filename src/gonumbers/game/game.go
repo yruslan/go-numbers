@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func play(
+func Play(
 	from int,
 	to int,
 	ask agents.AskAgent,
@@ -23,10 +23,7 @@ func play(
 	for !found {
 		num := guess.NextGuess()
 
-		guessFeedback, err := ask.CheckGuess(num)
-		if err != nil {
-			return 0, err
-		}
+		guessFeedback := ask.CheckGuess(num)
 
 		if guessFeedback == 0 {
 			fmt.Printf("Congratulations! You have found the number: %d\n", num)
