@@ -20,9 +20,11 @@ func Play(
 	}
 
 	var found = false
+	var attempt = 1
 	for !found {
-		num := guess.NextGuess()
+		fmt.Printf("-- Attempt #%d --\n", attempt)
 
+		num := guess.NextGuess()
 		guessFeedback := ask.CheckGuess(num)
 
 		if guessFeedback == 0 {
@@ -33,6 +35,8 @@ func Play(
 				return 0, err
 			}
 		}
+
+		attempt += 1
 	}
 
 	return 0, nil
