@@ -17,3 +17,32 @@ func TestThinkOfANumber(t *testing.T) {
 		}
 	}
 }
+
+func TestCheckGuess(t *testing.T) {
+	askAgent := AskAgentPc{number: 5}
+
+	guess1 := askAgent.CheckGuess(0)
+	if guess1 != -1 {
+		t.Errorf("CheckGuess: Got %d, expected -1", guess1)
+	}
+
+	guess2 := askAgent.CheckGuess(4)
+	if guess2 != -1 {
+		t.Errorf("CheckGuess: Got %d, expected -1", guess2)
+	}
+
+	guess3 := askAgent.CheckGuess(5)
+	if guess3 != 0 {
+		t.Errorf("CheckGuess: Got %d, expected 0", guess3)
+	}
+
+	guess4 := askAgent.CheckGuess(6)
+	if guess4 != 1 {
+		t.Errorf("CheckGuess: Got %d, expected 1", guess4)
+	}
+
+	guess5 := askAgent.CheckGuess(12)
+	if guess5 != 1 {
+		t.Errorf("CheckGuess: Got %d, expected 1", guess5)
+	}
+}
